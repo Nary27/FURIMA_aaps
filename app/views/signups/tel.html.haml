@@ -1,0 +1,16 @@
+= render partial: '/layouts/header'
+
+.contents
+  .contents__head
+    電話番号の確認
+  .contents__form
+    .form-group
+      = form_with  model:@user,url: signups_path, method: :post,local: true do |form|
+        = form.label :tel,"携帯電話の番号"
+        = form.text_field :tel, placeholder: "携帯電話の番号を入力",class:"tel-form"
+        = render partial: 'layouts/user-error-messages', locals: {user: @user, column: "tel"} 
+        %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        = form.submit "SMSを送信する" , class: "btn-default"
+        %p※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+
+= render partial: '/layouts/footer'

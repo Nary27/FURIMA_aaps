@@ -1,0 +1,37 @@
+= render partial: '/layouts/header'
+
+.contents
+
+  .contents__head
+    クレジットカード登録
+  .contents__form
+    .form-group
+      = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f|
+        = f.label :credit_card,"カード番号"
+        %span.form-require
+          必須
+        = f.text_field :card_number, type: 'text', class: 'card_number-form', placeholder: '半角数字のみ', maxlength: "16"
+        = image_tag "/logo-visa.png", height: '25', width: '40', class:"visa_logo"
+        = image_tag "/logo-master.png", height: '25', width: '40', class:"master_logo"
+        = image_tag "/logo-JCB.png", height: '25', width: '40', class:"JCB_logo"
+        .select-wrap
+          =f.label :birth,"有効期限"
+          %span.form-require
+            必須
+          .cards_expire
+            .cards-expire__wrap
+              = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-expire'
+              %span.expire-text 月
+              %br
+            .cards-expire__wrap
+              = f.select :exp_year,[["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-expire'
+              %span.expire-text 年
+          
+          = f.label :security_code,"セキュリティコード"
+          %span.form-require
+            必須
+          = f.text_field :cvc, type: 'text', class: 'card_number-form', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", id: 'cvc'
+          .content-bottom#card_token
+            = f.submit '追加する', class: 'btn-default_complete', id: 'token_submit'
+
+= render partial: '/layouts/footer'

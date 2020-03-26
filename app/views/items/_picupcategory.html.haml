@@ -1,0 +1,146 @@
+.pickup
+  %h2.head
+    ピックアップ
+  %productBox
+    .pickup__title
+      %h3.title
+        新規投稿商品
+    .pickup__lists
+      .pickup__lists__content
+        .pickup__lists__content__main
+          - @item.zip(@photo).each do |i, photo|
+            .pickup__lists__content__main__image
+            
+              = link_to item_path(i.id) do
+                = image_tag i.photos[0].url.url,size: "220x220"
+                .pickup__lists__content__main__image__buyer
+                  - if i.buyer_id.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                  .detailcontent
+                    .detailcontent__name
+                      = i.name
+                    .detailcontent__price
+                      ¥
+                      = i.price.to_s(:delimited)
+
+.pickup
+  %productBox
+    .pickup__title
+      %h3.title
+        メンズ
+    .pickup__lists
+      .pickup__lists__content
+        .pickup__lists__content__main
+          - @mens.each do |m|
+            .pickup__lists__content__main__image
+              = link_to item_path(m.id) do
+                = image_tag m.photos[0].url.url,size: "220x220"
+                .pickup__lists__content__main__image__buyer
+                  - if m.buyer_id.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                  .detailcontent
+                    .detailcontent__name
+                      = m.name
+                    .detailcontent__price
+                      ¥
+                      = m.price.to_s(:delimited)
+
+.pickup
+  %productBox
+    .pickup__title
+      %h3.title
+        レディース
+    .pickup__lists
+      .pickup__lists__content
+        .pickup__lists__content__main
+          - @ladies.each do |l|
+            .pickup__lists__content__main__image
+              = link_to item_path(l.id) do
+                = image_tag l.photos[0].url.url,size: "220x220"
+                .pickup__lists__content__main__image__buyer
+                  - if l.buyer_id.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                  .detailcontent
+                    .detailcontent__name
+                      = l.name
+                    .detailcontent__price
+                      ¥
+                      = l.price.to_s(:delimited)
+
+.pickup
+  %productBox
+    .pickup__title
+      %h3.title
+        本・音楽・ゲーム
+    .pickup__lists
+      .pickup__lists__content
+        .pickup__lists__content__main
+          - @game.each do |g|
+            .pickup__lists__content__main__image
+              = link_to item_path(g.id) do
+                = image_tag g.photos[0].url.url,size: "220x220"
+                .pickup__lists__content__main__image__buyer
+                  - if g.buyer_id.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                  .detailcontent
+                    .detailcontent__name
+                      = g.name
+                    .detailcontent__price
+                      ¥
+                      = g.price.to_s(:delimited)
+
+.pickup
+  %productBox
+    .pickup__title
+      %h3.title
+        家電・スマホ・カメラ
+    .pickup__lists
+      .pickup__lists__content
+        .pickup__lists__content__main
+          - @camera.each do |c|
+            .pickup__lists__content__main__image
+              = link_to item_path(c.id) do
+                = image_tag c.photos[0].url.url,size: "220x220"
+                .pickup__lists__content__main__image__buyer
+                  - if c.buyer_id.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                  .detailcontent
+                    .detailcontent__name
+                      = c.name
+                    .detailcontent__price
+                      ¥
+                      = c.price.to_s(:delimited)
+
+.pickup
+  %productBox
+    .pickup__title
+      %h3.title
+        自動車・オートバイ
+    .pickup__lists
+      .pickup__lists__content
+        .pickup__lists__content__main
+          - @car.each do |car|
+            .pickup__lists__content__main__image
+              = link_to item_path(car.id) do
+                = image_tag car.photos[0].url.url,size: "220x220"
+                .pickup__lists__content__main__image__buyer
+                  - if car.buyer_id.present?
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                  .detailcontent
+                    .detailcontent__name
+                      = car.name
+                    .detailcontent__price
+                      ¥
+                      = car.price.to_s(:delimited)

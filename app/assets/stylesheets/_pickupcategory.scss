@@ -1,0 +1,64 @@
+.pickup {
+  background-color: #f5f5f5;
+  .head {
+    padding: 25px;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .pickup__title {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 25px;
+  }
+  .pickup__lists {
+    width: 780px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    &__content {
+      margin-bottom: 80px;
+      margin: 10px;
+      &__main {
+        display: flex;
+        &__image {
+          margin: 20px;
+          position: relative;
+          &__buyer {
+            background-color: #ffffff;
+            padding-bottom: 20px;
+            .items-box_photo__sold{
+              width: 0;
+              height: 0;
+              border-top: 40px solid #ea352d ;
+              border-right: 40px solid transparent;
+              border-bottom: 40px solid transparent;
+              border-left: 40px solid #ea352d ;
+              top:-320px;
+              position: absolute;
+              top: 0px;
+              &__inner {
+                transform: rotate(-45deg);
+                font-size: 15px;
+                margin:-20px 0px 0px -40px;
+                color: #ffffff;
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
+            }
+            .detailcontent {
+              padding-left: 10px;
+              &__name {
+                font-size: 18px;
+                padding: 5px;
+              }
+              &__price {
+                font-size: 18px;
+                margin-top: 3px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

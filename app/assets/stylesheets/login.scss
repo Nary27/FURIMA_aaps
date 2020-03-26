@@ -1,0 +1,109 @@
+.loginmain {
+  &__panel {
+    width: 456px;
+    height: 620px;
+    margin: 0 auto;
+    background: #ffffff;
+    &--account {
+      padding: 40px 64px;
+      text-align: center;
+      p {
+        font-size: 14px;
+      }
+      .nonaccount {
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background-color: #0099e8;
+        color: #ffffff;
+        line-height: 40px;
+        text-decoration: none;
+      }
+    }
+    &--sns {
+      padding: 32px 64px;
+      border-top: 1px solid #eeeeee;
+      .facebook {
+        margin: 0;
+        background-color: #385185;
+        color: #ffffff;
+        position: relative;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+        height: 48px;
+        position: relative;
+        i {
+          position: absolute;
+          top: 18px;
+          left: 20px;
+        }
+      }
+      .google {
+        margin: 16px 0 0;
+        background-color: #ffffff;
+        color: #333333;
+        position: relative;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid #979797;
+        cursor: pointer;
+        text-align: center;
+        height: 48px;
+        i {
+          position: absolute;
+          top: 18px;
+          left: 20px;
+        }
+      }
+    }
+    &--form {
+      .loginform {
+        padding: 24px 64px 32px;
+        &__mail {
+          input {
+            height: 24px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            width: 90%;
+          }
+        }
+        &__pass {
+          input {
+            height: 24px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            margin: 24px 0 0;
+            width: 90%;
+          }
+        }
+        .button {
+          margin: 24px 0 0;
+          background-color: #ea352d;
+          border: 1px solid #ea352d;
+          color: #ffffff;
+          display: block;
+          width: 100%;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+          height: 48px;
+        }
+      }
+    }
+  }
+}

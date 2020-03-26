@@ -1,0 +1,47 @@
+= render partial: '/layouts/header'
+
+.check
+  .check__content
+    %h2 購入内容の確認
+    .check__content--item
+      .buyitem
+        .buyitem__box
+          %h3.buyitem__box--text
+            = image_tag @item.photos[0].url.url, width: "60", height: "80"
+          .buyitem__box--detail
+            %p.item_name
+              = @item.name
+            %p.item_price
+              %span
+                ¥
+                = @item.price.to_s(:delimited)
+              %span （税込）
+    .check__content--price
+      .checkprice
+        .checkprice__item
+          %ul
+            %li
+              .buydisplay 支払い金額
+              .buyprice
+                %span
+                  ¥ 
+                  = @item.price.to_s(:delimited)
+      .credit
+        .credit__content
+          %h3 支払い方法
+          = link_to '#' do
+            %p 
+            %span 登録してください
+      .delivery
+        .delivery__content
+          %h3 配送先
+          = link_to '#' do
+            %p
+            %span 登録してください
+      .buybtn
+        = link_to buycomp_item_path, class: "payjp" do
+          = form_with url: buycomp_item_path, class: "payjp-form" do
+            :plain
+            %script.payjp-button{"data-key": "pk_test_d2c67ecac143a85305531f00", src: "https://checkout.pay.jp", type: "text/javascript"}
+
+= render partial: '/layouts/footer'

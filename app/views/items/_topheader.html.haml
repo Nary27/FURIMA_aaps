@@ -1,0 +1,38 @@
+%header.top
+  .headertop
+    .headertop__main
+      %h1.headertop__main--icon
+        = link_to image_tag "/logo.png", width: "140", height: "40"
+      .headertop__main--form
+      %form{"accept-charset": "UTF-8", action: "#", method: "get"}
+        %input{name:  "utf8", type: "hidden", value: "✓"}/
+        %input.searchBox--input{name: "key", placeholder: "キーワードから探す"}/
+        %form.button_to{action: "/?type=submit", method: "post"}
+          %button{type: "submit",class:"search_btn"}
+            .searchBox__icon
+            %i.fas.fa-search{style: "color: white;", class: "fa-2x"}
+          %input{name: "authenticity_token", type: "hidden", value: "kIA+/27nMmdwnPV1Fz1XNvuGRDQtTowqq2aJvUg0zu2x8eIx9pg+l5/uckZ18xrKHILiN5cUVIhIPOrpTkkLCA=="}/
+    .headertop__sub
+      %ul.headertop__sub--list
+        %li.category
+          = link_to "カテゴリー"
+        %li.brand
+          = link_to "ブランド"
+
+      - if user_signed_in?
+        %ul.headertop__sub--login
+          %li.logout
+            = link_to destroy_user_session_path, method: :delete do
+              ログアウト
+          %li.new
+            = link_to my_page_signups_path do
+              マイページ
+      - else
+        %ul.headertop__sub--login
+          %li.login
+            = link_to new_user_session_path do
+              ログイン
+
+          %li.new
+            = link_to signups_path do
+              新規会員登録

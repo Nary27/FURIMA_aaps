@@ -1,0 +1,13 @@
+= render partial: '/layouts/header'
+
+.contents
+  .contents__head
+    購入完了
+  .contents__form
+    .form-group
+      %p.complete  
+        ありがとうございました。
+      = link_to root_path, class: "btn-default_complete" do
+        トップページ
+
+= render partial: '/layouts/footer'

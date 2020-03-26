@@ -1,0 +1,29 @@
+footer.mainfooter {
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding-top: 80px;
+  text-align: center;
+  .footer {
+    &__list {
+      ul {
+        list-style: none;
+        display: inline-block;
+        margin: -16px 0px 40px -13px;
+        li {
+          display: inline-block;
+          margin: 16px 0px 0px 16px;
+          font-size: 12px;
+          color: inherit;
+        }
+      }
+    }
+    &__logo {
+      &--image {
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+= render partial: '/layouts/header'
+
+.contents
+
+  .contents__head
+    住所入力
+  .contents__form
+    = form_with  model:@address,url: signups_path, method: :post,local: true do |form|
+      .form-group
+        %label 郵便番号
+        %span.form-require
+          必須
+        = form.text_field :postcode, placeholder: "例）123-4567",class:"postcode-form"
+        = render partial: 'address-error-messages', locals: {user: @address, column: "postcode"} 
+      .form-group
+        %label 都道府県
+        %span.form-require
+          必須
+        = form.collection_select :prefecture_id, Prefecture.all, :id, :name
+        = render partial: 'address-error-messages', locals: {user: @address, column: "prefecture_id"} 
+      .form-group
+        %label 市町村
+        %span.form-require
+          必須
+        = form.text_field :cities, placeholder: "例）名古屋市中区",class:"cities-form"
+        = render partial: 'address-error-messages', locals: {user: @address, column: "cities"}
+
+        .form-group
+        %label 番地
+        %span.form-require
+          必須
+        = form.text_field :blocks, placeholder: "例）栄1-1-1",class:"blocks-form"
+        = render partial: 'address-error-messages', locals: {user: @address, column: "blocks"}
+        .form-group
+        %label 建物名
+        %span.form-optional
+          任意
+        = form.text_field :builds, placeholder: "例）オクムラビル",class:"builds-form"
+        .form_group
+          %p.bottom-text
+          = form.submit "次へ進む" , class: "btn-default"
+
+
+= render partial: '/layouts/footer'

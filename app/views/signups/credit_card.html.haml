@@ -1,0 +1,36 @@
+= render partial: '/layouts/header'
+
+.contents
+
+  .contents__head
+    クレジットカード登録
+  .contents__form
+    .form-group
+      = form_with model: @user do |form|
+        = form.label :credit_card,"カード番号"
+        %span.form-require
+          必須
+        = form.text_field :nickname, placeholder: "半角数字のみ",class:"card_number-form"
+        = image_tag "/logo-visa.png", height: '25', width: '40', class:"visa_logo"
+        = image_tag "/logo-master.png", height: '25', width: '40', class:"master_logo"
+        = image_tag "/logo-JCB.png", height: '25', width: '40', class:"JCB_logo"
+    .form-group
+      .select-wrap
+      = form_with model: @user do |form|
+        =form.label :birth,"有効期限"
+        %span.form-require
+          必須
+        .birth_date
+          = raw sprintf(form.date_select(:expiration_date,use_month_numbers: true,discard_day:true,start_year: 1930,end_year: (Time.now.year ),default: Date.new(1989, 1),date_separator: '%s'),'月') + '年' 
+    .form-group
+      = form_with model: @user do |form|
+        = form.label :security_code,"セキュリティコード"
+        %span.form-require
+          必須
+        = form.text_field :nickname, placeholder: "カード背面４桁もしくは３桁の番号",class:"card_number-form"
+    .form-group
+      %button.btn-default_complete
+        次へ進む
+
+
+= render partial: '/layouts/footer'

@@ -1,0 +1,26 @@
+= render partial: "topheader"
+
+.maintop
+  %section.mainVisual
+    .content
+      %h2.content__subtitle
+        %br/
+        人生を変えるフリマアプリ
+      %p.content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br/
+        フリマアプリです
+      .downloadcontents
+        .downloadcontents__apple
+          = image_tag "/appleicon.svg"
+        .downloadcontents__google
+          = image_tag "/googleicon.svg"
+- if user_signed_in?
+  .sellbtn
+    %label
+      = link_to new_item_path, class: "sellbtn" do
+        %h2.sell 出品する
+        %i.fas.fa-camera{style: "color: white;", class: "fa-4x"}
+
+= render partial: "picupcategory"
+= render partial: "topfooter"

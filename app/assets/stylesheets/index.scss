@@ -1,0 +1,99 @@
+body{
+position: relative;
+min-height: 100%;
+font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+font-size: 14px;
+color: #333;
+line-height: 1;
+background-color: #f5f5f5;
+}
+
+.header{
+  height: 128px;
+  padding-top: 40px; 
+  &__logo{
+    text-align: center;
+  }
+}
+
+@mixin index_btn{
+  border: #979797 solid 1px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 50px;
+  margin: 16px 0px 0px;
+  position: relative;
+  text-decoration: none;
+}
+
+.contents{
+  width: 700px;
+  height:100%;
+  margin:0 auto;
+  background-color: #fff;
+  &__head{
+    padding: 32px;
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.5;
+    font-weight: bold;
+    }
+  &__middle{
+    padding: 24px 16px 40px;
+    border-top: 1px solid #f5f5f5;
+    &--btn{
+      margin: 0 auto;
+      .contents__btn{
+        max-width: 343px;
+        margin: 0 auto;
+        .emai-btn{
+          background-color: #ea352d;
+          color: #fff;
+          @include index_btn;
+          i {
+            position: absolute;
+            top: 30%;
+            left: 18px;
+            font-size: 20px;
+          }
+        }
+
+        .Facebook-btn{
+          background-color: #385185;
+          color: #fff;
+          @include index_btn;
+          i{
+            position: absolute;
+            top: 30%;
+            left: 18px;
+            font-size: 20px;
+          }
+        }
+        .google-btn{
+          background-color: #fff;
+          margin:16px 0px 0px;
+          color:#333;
+          border: #979797 solid 1px;
+          display: block;
+          width: 100%;
+          height: 50px;
+          border-radius: 4px;
+          text-align: center;
+          line-height: 50px;
+          margin: 16px 0px 0px;
+          position: relative;
+          text-decoration: none;
+          i{
+            position: absolute;
+            top: 30%;
+            left: 18px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

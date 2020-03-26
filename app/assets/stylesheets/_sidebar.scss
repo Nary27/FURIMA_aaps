@@ -1,0 +1,44 @@
+.sidebar{
+  width: 280px;
+  margin: 0 auto ;
+  list-style: none;
+  h3{
+    margin: 40px 0px 8px;
+    font-size: 16px;
+    font-weight: 700;
+
+  }
+  
+  .list-item{
+    position: relative;
+    display: block;
+    padding: 16px;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    
+    .fas.fa-chevron-right{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    color: #ccc;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transition: all ease-out .2s;
+    transition: all ease-out .2s;
+    
+    }
+  }
+
+  .list-item:hover{
+    background-color: #f5f5f5;
+    text-decoration: none;
+    .fas.fa-chevron-right{
+      color: black;
+      transform: translateY(-0.1875em);
+    }
+  }
+
+
+}

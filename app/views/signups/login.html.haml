@@ -1,0 +1,28 @@
+= render partial: '/layouts/header'
+
+.loginmain
+  .loginmain__panel
+    .loginmain__panel--account
+      %p アカウントをお持ちでない方はこちら
+      = link_to signups_path, class: "nonaccount" do
+        新規会員登録
+    .loginmain__panel--sns
+      %button.facebook
+        %i.fab.fa-facebook
+        Facebookでログイン
+      %button.google
+        %i.fab.fa-google
+        Googleでログイン
+    .loginmain__panel--form
+      .loginform
+        .loginform__mail
+          = form_with model: @user do |form|
+            = form.text_field :email, placeholder: "メールアドレス", class: "mail"
+            = render partial: 'user-error-messages', locals: {user: @user, column: "email"} 
+        .loginform__pass
+          = form_with model: @user do |form|
+            = form.password_field :password, placeholder: "パスワード", class: "pass"
+            = render partial: 'user-error-messages', locals: {user: @user, column: "password"} 
+            = form.submit "ログイン",class: "button"
+
+= render partial: '/layouts/footer'

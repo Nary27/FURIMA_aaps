@@ -1,0 +1,89 @@
+= render partial: '/layouts/header'
+
+%body
+  .item
+    %h1
+      = @item.name
+    .item__main
+      .item__main--photo
+        = image_tag @item.photos[0].url.url,size: "300x300",class:"img_top",alt:"imgs_main"
+        .smallphoto
+          - @item.photos.each do |i|
+            = image_tag i.url.url,size: "54x54",class:"img_bottoms",alt:"imgs_side"
+      %table
+        %tbody
+          %tr
+            %th 出品者
+            %td 
+              = @item.user.nickname
+          %tr
+            %th カテゴリー
+            %td
+              = @item.category.name
+          %tr
+            %th ブランド
+            %td 
+              = @item.brand.name
+          %tr
+            %th 商品の状態
+            %td 
+              = @item.situation
+          %tr
+            %th 配送料の負担
+            %td 
+              = @item.cost
+          %tr
+            %th 配送元地域
+            %td 
+              = @item.deliver_area
+          %tr
+            %th 発送日の目安
+
+            %td
+              = @item.shipping_term
+    .item__price
+      %span.price 
+        = @item.price.to_s(:delimited)
+      %span.tax 円(税込)
+      %span.deri 送料込み
+      - if user_signed_in?
+        - if @item.buyer_id.present?
+          = link_to "#", class: "item__buy" do
+            SOLDOUT
+        - elsif @item.user_id != current_user.id
+          = link_to check_item_path(@item.id), class: "item__buy" do
+            購入画面に進む
+        - elsif @item.user_id == current_user.id
+          = link_to edit_item_path(@item.id), class: "item__buy" do
+            編集する
+          = link_to delete_item_path(@item.id), class: "item__buy" do
+            削除する
+      - else
+        = link_to new_user_session_path, class: "item__buy" do
+          購入するにはログイン、または、新規会員登録
+
+    .item__detail
+      %p
+        ■商品説明■ 
+        = @item.text
+
+  .comment
+    .comment__main
+      .comment__main--textarea
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea
+        %button
+          %span コメントする
+
+= render partial: '/layouts/footer'
+
+
+
+:javascript
+
+  $(function() {
+    $('.img_bottoms').hover(function() {
+      var thisImg = $(this).attr('src');
+         $('.img_top').attr({src:thisImg});
+    });
+  });

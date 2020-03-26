@@ -1,0 +1,33 @@
+= render partial: '/layouts/header'
+
+.check
+  .check__content
+    %h2 出品削除の確認
+    .check__content--item
+      .buyitem
+        .buyitem__box
+          %h3.buyitem__box--text
+            = image_tag @item.photos[0].url.url, width: "60", height: "80"
+          .buyitem__box--detail
+            %p.item_name
+              = @item.name
+            %p.item_price
+              %span
+                ¥
+                = @item.price.to_s(:delimited)
+              %span （税込）
+    .check__content--price
+      .checkprice
+        .checkprice__item
+          %ul
+            %li
+              .buydisplay 金額
+              .buyprice
+                %span
+                  ¥ 
+                  = @item.price.to_s(:delimited)
+      .buybtn
+        = link_to item_destroy_item_path(@item.id), class: "buybtn__btn", method: :delete do
+          削除する
+
+= render partial: '/layouts/footer'

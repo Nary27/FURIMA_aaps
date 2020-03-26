@@ -1,0 +1,94 @@
+= render partial: '/layouts/header'
+
+.contents
+
+  .contents__head
+    会員情報入力
+  .contents__form
+    = form_with  model: @user,url: address_signups_path, method: :get,local: true do |form|
+      .form-group
+        %label ニックネーム
+        %span.form-require
+          必須
+        = form.text_field :nickname, placeholder: "例）フリマ太郎",class:"nickname-form"
+        = render partial: 'user-error-messages', locals: {user: @user, column: "nickname"} 
+      .form-group
+        %label メールアドレス
+        %span.form-require
+          必須
+
+        = form.email_field :email, placeholder: "PC・携帯どちらでも可",class:"email-form"
+        = render partial: 'user-error-messages', locals: {user: @user, column: "email"} 
+      .form-group-password
+        %label パスワード 
+        %span.form-require
+          必須
+        = form.password_field :password,  placeholder:  "７文字以上の半角英数字",class:"password-form"
+        = render partial: 'user-error-messages', locals: {user: @user, column: "password"} 
+        %p ※ 英字と数字の両方を含めて設定してください
+
+      .form-group-password
+        %label パスワード再入力
+        %span.form-require
+          必須
+        = form.password_field :password_confirmation, placeholder:  "７文字以上の半角英数字",class:"password-form"
+        = render partial: 'user-error-messages', locals: {user: @user, column: "password_confirmation"} 
+        %p ※ 英字と数字の両方を含めて設定してください
+
+        %p.single.text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+    
+      .form-group
+
+        %label お名前漢字（全角）
+        %span.form-require
+          必須
+        .input_name
+          =form.text_field :lastname_kanji,  placeholder: "例）奥村",class:"input-default_half"
+          =form.text_field :firstname_kanji,  placeholder: "例）慎吾",class:"input-default_half"
+          = render partial: 'user-error-messages', locals: {user: @user, column: "lastname_kanji"} 
+          = render partial: 'user-error-messages', locals: {user: @user, column: "firstname_kanji"} 
+
+      .form-group
+
+        %label お名前カナ（全角）
+        %span.form-require
+          必須
+        .input_name
+          =form.text_field :lastname_katakana, placeholder: "例）オクムラ",class:"input-default_half"
+          =form.text_field :firstname_katakana, placeholder: "例）シンゴ",class:"input-default_half"
+          = render partial: 'user-error-messages', locals: {user: @user, column: "lastname_katakana"} 
+          = render partial: 'user-error-messages', locals: {user: @user, column: "firstname_katakana"} 
+      .form-group
+        .select-wrap
+
+          %label 生年月日
+          %span.form-require
+            必須
+          .birth_date
+          != sprintf(form.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+          = render partial: 'user-error-messages', locals: {user: @user, column: "birth_year"} 
+          = render partial: 'user-error-messages', locals: {user: @user, column: "birth_month"} 
+          = render partial: 'user-error-messages', locals: {user: @user, column: "birth_day"} 
+
+        %p.form-into-text 
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+      .form-group
+        = form.label :tel,"携帯電話の番号"
+
+        %span.form-require
+          必須
+        = form.text_field :tel, placeholder: "携帯電話の番号を入力",class:"tel-form"
+        = render partial: 'user-error-messages', locals: {user: @user, column: "tel"} 
+      .bottom_content
+        .form_group
+          %p.bottom-text
+            「次へ進む」のボタンを押すことにより、
+            = link_to"#" do
+              利用規約
+            に同意したものとみなします。
+
+            = form.submit "次へ進む" , class: "btn-default"
+
+= render partial: '/layouts/footer'

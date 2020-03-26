@@ -1,0 +1,15 @@
+= render partial: '/layouts/header'
+
+.contents
+  .contents__head
+    カード登録完了
+  .contents__form
+    .form-group
+      %p.complete  
+        ありがとうございました。
+      %p.complete  
+        カード登録が完了しました。
+    = link_to root_path, class: "btn-default_complete" do
+      フリマを始める 
+
+= render partial: '/layouts/footer'
